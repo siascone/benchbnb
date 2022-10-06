@@ -6,12 +6,33 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import csrfFetch, { restoreCSRF } from './store/csrf';
+import * as sessionActions from './store/session'
 
-const store = configureStore();
+let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+let initialState = {}
+
+if (currentUser) {
+  initialState = {
+    session: {
+      user: {
+        [currentUser.id]: currentUser
+      }
+    }
+  }
+} else {
+  initialState = {
+    session: {
+      user: null
+    }
+  }
+}
+
+const store = configureStore(initialState);
 
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.csrfFetch = csrfFetch;
+  window.sessionActions = sessionActions;
 }
 
 function Root() {
