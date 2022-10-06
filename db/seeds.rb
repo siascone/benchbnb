@@ -16,8 +16,8 @@ ApplicationRecord.transaction do
     puts "Creating Users..."
     User.create!(
         username: 'Demo-lition',
-        email: 'demo@user.io',
-        password: 'password'
+        email: 'jspartan@sanangelespd.io',
+        password: '3seashells'
     )
 
     10.times do 
