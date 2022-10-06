@@ -53,14 +53,12 @@ export const logoutUser = (userId) => async dispatch => {
 // REDUCER
 const sessionReducer = (state = {}, action) => {
     Object.freeze(state);
-    let nextState = { ...state };
 
     switch(action.type) {
         case RECEIVE_USER:
-            nextState.user[action.user.id] = action.user;
+            return { ...state, user: action.user}
         case REMOVE_USER:
-            delete nextState.user[action.userId];
-            return nextState;
+            return { ...state, user: null };
         default:
             return state;
     }

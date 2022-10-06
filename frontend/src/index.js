@@ -19,12 +19,6 @@ if (currentUser) {
       }
     }
   }
-} else {
-  initialState = {
-    session: {
-      user: null
-    }
-  }
 }
 
 const store = configureStore(initialState);
