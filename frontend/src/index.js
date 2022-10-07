@@ -1,27 +1,31 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import configureStore from './store';
-import csrfFetch, { restoreCSRF } from './store/csrf';
+import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session'
 
-let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-let initialState = {}
+// let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+// let initialState = {}
 
-if (currentUser) {
-  initialState = {
-    session: {
-      user: {
-        [currentUser.id]: currentUser
-      }
-    }
-  }
-}
+// if (currentUser) {
+//   initialState = {
+//     session: {
+//       user: {
+//         [currentUser.id]: currentUser
+//       }
+//     }
+//   }
+// }
 
-const store = configureStore(initialState);
+// const initialState = {
+//   user: JSON.parse(sessionStorage.getItem('currentUser'))
+// };
+
+const store = configureStore();
 
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;
@@ -48,8 +52,11 @@ const renderApplication = () => {
   );
 }
 
-if (sessionStorage.getItem('X-CSRF-Token') === null) {
-  restoreCSRF().then(renderApplication);
+if (
+  sessionStorage.getItem('X-CSRF-Token') === null ||
+  sessionStorage.getItem('currentUser') === null
+) {
+  store.dispatch(sessionActions.restoreSession()).then(renderApplication);
 } else {
   renderApplication();
 }
