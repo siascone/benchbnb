@@ -56,7 +56,7 @@ function LoginForm() {
                         required
                     />
                 </label>
-                
+                <br />
                 <input className='login-form-button' type="submit" value="Login"/>
             </form>
             <ul>
