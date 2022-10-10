@@ -1,11 +1,13 @@
 import { Route, Switch } from 'react-router-dom';
 import LoginForm from './components/LoginForm/LoginForm';
 import SignupForm from './components/SignupForm/SignupForm';
+import Navigation from './components/Navigation/Navigation';
 
 function App() {
   return (
     <div>
       <h1>Welcome to BenchBnb</h1>
+      <Navigation />
       <Switch>
         <Route path='/login' component={LoginForm}/>
         <Route path='/signup' component={SignupForm}/>
