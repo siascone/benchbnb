@@ -9,8 +9,8 @@ function App() {
       <h1>Welcome to BenchBnb</h1>
       <Navigation />
       <Switch>
-        <Route path='/login' component={LoginForm}/>
-        <Route path='/signup' component={SignupForm}/>
+        {/* <Route path='/login' component={LoginForm}/> */}
+        {/* <Route path='/signup' component={SignupForm}/> */}
       </Switch>
     </div>
   );

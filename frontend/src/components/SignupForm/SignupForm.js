@@ -77,6 +77,9 @@ function SignupForm() {
                 <br />
                 <input className='signup-form-button' type="submit" value="Sign Up" />
             </form>
+            <ul>
+                {errors.map((error, i) => <li key={i}>{error}</li>)}
+            </ul>
         </div>
     )
 }
