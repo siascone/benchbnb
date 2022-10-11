@@ -7,7 +7,6 @@ class Api::BenchesController < ApplicationController
     end
 
     def show
-        debugger
         @bench = Bench.find(params[:id])
         render :show
     end
@@ -25,7 +24,6 @@ class Api::BenchesController < ApplicationController
     private
 
     def bench_params
-        debugger
         params.require(:bench).permit(:title, :description, :price, :seating, :lat, :lng)
     end
 end
