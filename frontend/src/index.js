@@ -6,7 +6,8 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
-import * as sessionActions from './store/session'
+import * as sessionActions from './store/session';
+import * as benchActions from './store/benches';
 import { ModalProvider } from './context/Modal';
 
 // let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
@@ -32,6 +33,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
+  window.benchActions = benchActions;
 }
 
 function Root() {

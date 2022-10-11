@@ -6,10 +6,12 @@ import {
 } from 'redux';
 
 import thunk from 'redux-thunk';
+import benchesReducer from './benches';
 import sessionReducer from './session';
 
 const rootReducer = combineReducers({
-    session: sessionReducer
+    session: sessionReducer,
+    benches: benchesReducer
 })
 
 let enhancer;
