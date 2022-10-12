@@ -6,7 +6,7 @@ function BenchListItem({bench}) {
     const handleClick = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log('click')
+        // console.log('click')
         history.push(`/benches/${bench.id}`)
     }
 
