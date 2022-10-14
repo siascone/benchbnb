@@ -2,6 +2,7 @@ import { useSelector, useDispatch} from 'react-redux';
 import { useParams, useRouteMatch, NavLink } from 'react-router-dom'
 import { useEffect } from 'react';
 import { fetchBench } from '../../store/benches';
+import '../BenchIndexPage/BenchIndex.css';
 
 function BenchShowPage() {
     const route = useRouteMatch();
@@ -17,7 +18,7 @@ function BenchShowPage() {
     if (!bench) return null;
 
     return (
-        <div>
+        <div className='bench-show-container'>
             <div>
                 <h2>{bench.title}</h2>
                 <NavLink to='/'>Bench Index</NavLink>

@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBenches } from '../../store/benches';
 import BenchList from './BenchList';
+import './BenchIndex.css'
+
 
 function BenchIndexPage() {
     let dispatch = useDispatch()
@@ -12,7 +14,7 @@ function BenchIndexPage() {
     }, [])
 
     return (
-        <div>
+        <div className='bench-list-container'>
             <BenchList benches={benches} />
         </div>
     )
